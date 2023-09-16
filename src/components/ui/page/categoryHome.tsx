@@ -40,9 +40,6 @@ const CategoryHome = async () => {
     const categories = await fetchCategories()
     return (
         <div className="grid grid-cols-5 my-6">
-            <div className="col-span-1 bg-primary rounded-l-3xl pl-4 ml-4 text-white font-bold text-5xl flex items-center justify-center">
-                <p className="text-center uppercase">Categorías</p>
-            </div>
             <ScrollArea className="col-span-4">
                 <div className="flex space-x-4 pb-4">
                     {
@@ -59,6 +56,9 @@ const CategoryHome = async () => {
                 </div>
                 <ScrollBar orientation="horizontal" />
             </ScrollArea>
+            <div className="col-span-1 bg-primary rounded-l-3xl pl-4 ml-4 text-white font-bold text-5xl flex items-center justify-center">
+                <p className="text-center uppercase">Categorías</p>
+            </div>
         </div>
     )
 }
