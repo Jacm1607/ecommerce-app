@@ -1,7 +1,7 @@
 import { URL_BASE } from "@/lib/endpoint"
 import Link from "next/link";
-import Img from "../ui/img";
 import { ScrollArea, ScrollBar } from "../ui/scroll-area";
+import Img from "../ui/img";
 
 export interface ICategory {
     id: number;
