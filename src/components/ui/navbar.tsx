@@ -3,7 +3,6 @@ import { Button } from './button';
 import { Input } from './input';
 import Link from 'next/link';
 import { ItemsNavbar } from './itemsNavbar';
-import { CommandDemo } from './searchBuscador';
 
 const Navbar = () => {
     return (
