@@ -220,7 +220,7 @@ const ListProducts = ({ loadingProduct, products, onChangeOrderByPrice, newFetch
                                         {
                                             !loadingProduct ?
                                                 products.data.length > 0 ? products.data.map((product: any) => (
-                                                    <Link key={product.id} href={`/producto/${product.id}`}>
+                                                    <Link key={product.id} href={`/producto?producto=${product.id}`}>
                                                     <div className=" cursor-pointer flex border-2 border-sky-800 border-opacity-40 rounded-3xl">
                                                         <div className="img p-4">
                                                             <Img url={product.attributes.imagen.data[0].attributes.url} width={"140px"} height={"140px"} objectFit={"contain"} />
