@@ -108,42 +108,37 @@ const ListSubcategory = ({ categoria }: ICategoria) => {
     return (
         <>
             {
-                !loadingSubcategory ?
-                    <>
-                        <div className="m-6">
-                            <div className="mt-6 relative">
-                                <h2 className="absolute text-4xl font-extrabold text-primary tracking-tight bg-white pr-3">
-                                    {subcategories.data.attributes.nombre}
-                                </h2>
-                                <div className="border-b-2 h-8 border-primary">
+                <>
+                <div className="m-6">
+                    <div className="mt-6 relative">
+                        <h2 className="absolute text-4xl font-extrabold text-primary tracking-tight bg-white pr-3">
+                            {subcategories.data.attributes.nombre}
+                        </h2>
+                        <div className="border-b-2 h-8 border-primary">
 
-                                </div>
-                            </div>
-                            <div className="mt-10">
-                                <ScrollArea>
-                                    <div className="flex space-x-4 pb-4">
-                                        {
-                                            subcategories.data.attributes.subcategorias.data.length > 0 ? (
-                                                subcategories.data.attributes.subcategorias.data.map((subcategory: any) => (
-                                                    <div onClick={() => fetchProduct(subcategory.id)} key={subcategory.id} className="cursor-pointer flex-shrink-0 relative w-[220px] h-[190px] flex justify-center items-center">
-                                                        <div className="absolute w-full h-full bg-black bg-opacity-60 rounded-2xl"></div>
-                                                        <Img url={subcategory.attributes.imagen.data.attributes.url} alt={subcategory.attributes.nombre} qwidth={200} qheight={100} width={"70%"} height={"70%"} objectFit={"contain"}></Img>
-                                                        <p className="absolute text-white text-2xl font-bold text-center mt-[90px]">{subcategory.attributes.nombre}</p>
-                                                    </div>
-                                                ))
-                                            ) : <></>
-                                        }
-                                    </div>
-                                    <ScrollBar orientation="horizontal" />
-                                </ScrollArea>
-                            </div>
                         </div>
-                        <ListProducts onChangePriceMax={onChangePriceMax} onChangePriceMin={onChangePriceMin} priceMin={priceMin} priceMax={priceMax} newFetchProducts={newFetchProducts} loadingProduct={loadingProduct} products={products} onChangeOrderByPrice={onChangeOrderByPrice} />
-                    </>
-                    : <div className="h-[700px] flex justify-center items-center">
-                        <span>Cargando...</span>
-                        {/* <Skeleton className="w-full h-[120px] bg-slate-500" /> */}
                     </div>
+                    <div className="mt-10">
+                        <ScrollArea>
+                            <div className="flex space-x-4 pb-4">
+                                {
+                                    subcategories.data.attributes.subcategorias.data.length > 0 ? (
+                                        subcategories.data.attributes.subcategorias.data.map((subcategory: any) => (
+                                            <div onClick={() => fetchProduct(subcategory.id)} key={subcategory.id} className="cursor-pointer flex-shrink-0 relative w-[220px] h-[190px] flex justify-center items-center">
+                                                <div className="absolute w-full h-full bg-black bg-opacity-60 rounded-2xl"></div>
+                                                <Img url={subcategory.attributes.imagen.data.attributes.url} alt={subcategory.attributes.nombre} qwidth={200} qheight={100} width={"70%"} height={"70%"} objectFit={"contain"}></Img>
+                                                <p className="absolute text-white text-2xl font-bold text-center mt-[90px]">{subcategory.attributes.nombre}</p>
+                                            </div>
+                                        ))
+                                    ) : <></>
+                                }
+                            </div>
+                            <ScrollBar orientation="horizontal" />
+                        </ScrollArea>
+                    </div>
+                </div>
+                <ListProducts onChangePriceMax={onChangePriceMax} onChangePriceMin={onChangePriceMin} priceMin={priceMin} priceMax={priceMax} newFetchProducts={newFetchProducts} loadingProduct={loadingProduct} products={products} onChangeOrderByPrice={onChangeOrderByPrice} />
+            </>
             }
         </>
     )
