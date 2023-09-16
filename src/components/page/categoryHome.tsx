@@ -44,7 +44,7 @@ const CategoryHome = async () => {
                 <div className="flex space-x-4 pb-4">
                     {
                         categories.data.map((category: ICategory) =>
-                            <Link key={category.id} href={`/categoria/${category.id}`}>
+                            <Link key={category.id} href={`/categoria?categoria=${category.id}`}>
                                 <div className="card flex-shrink-0 relative w-[220px] h-[190px] flex justify-center items-center">
                                     <div className="absolute w-full h-full bg-black bg-opacity-60 rounded-2xl"></div>
                                     <Img url={category.attributes.imagen.data.attributes.url} alt={category.attributes.nombre} qwidth={200} qheight={100} width={"70%"} height={"70%"} objectFit={"contain"}></Img>
