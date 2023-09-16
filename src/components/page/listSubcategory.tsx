@@ -79,18 +79,14 @@ const ListSubcategory = ({ categoria }: ICategoria) => {
     const newFetchProducts = async () => {
         console.log('click')
         setLoadingProduct(true);
-        const respose = await fetch(`${URL_BASE}/api/productos?populate[subcategoria]=*&filters[subcategoria][id][$eq]=${subcategory}&pagination[page]=1&populate[imagen][fields][0]=url&sort[0]=precio:${orderByPrice}&filters[precio][$gte]=${priceMin}&filters[precio][$lte]=${priceMax}`, {
-            cache:"no-cache"
-        })
+        const respose = await fetch(`${URL_BASE}/api/productos?populate[subcategoria]=*&filters[subcategoria][id][$eq]=${subcategory}&pagination[page]=1&populate[imagen][fields][0]=url&sort[0]=precio:${orderByPrice}&filters[precio][$gte]=${priceMin}&filters[precio][$lte]=${priceMax}`)
         const jsonResponse = await respose.json();
         setProducts(jsonResponse);
         setLoadingProduct(false);
     }
 
     const fetchProduct = async (subcategoria: any) => {
-        const respose = await fetch(`${URL_BASE}/api/productos?populate[subcategoria]=*&filters[subcategoria][id][$eq]=${subcategoria}&pagination[page]=1&populate[imagen][fields][0]=url&sort[0]=precio:${orderByPrice}`,{
-            cache:"no-cache"
-        })
+        const respose = await fetch(`${URL_BASE}/api/productos?populate[subcategoria]=*&filters[subcategoria][id][$eq]=${subcategoria}&pagination[page]=1&populate[imagen][fields][0]=url&sort[0]=precio:${orderByPrice}`)
         const jsonResponse = await respose.json();
         setSubcategory(subcategoria)
         setProducts(jsonResponse);
@@ -100,9 +96,7 @@ const ListSubcategory = ({ categoria }: ICategoria) => {
     useEffect(() => {
         const fetchSubcategories = async () => {
             setLoadingSubcategory(true);
-            const respose = await fetch(`${URL_BASE}/api/categorias/${categoria}?populate[subcategorias][populate][fields][0]=nombre&populate[subcategorias][populate][imagen][fields][1]=url`,{
-                cache:"no-cache"
-            })
+            const respose = await fetch(`${URL_BASE}/api/categorias/${categoria}?populate[subcategorias][populate][fields][0]=nombre&populate[subcategorias][populate][imagen][fields][1]=url`)
             const jsonResponse = await respose.json();
             setSubcategories(jsonResponse);
             fetchProduct(jsonResponse.data.attributes.subcategorias.data[0].id)
