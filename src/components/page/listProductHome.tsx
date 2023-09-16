@@ -1,8 +1,8 @@
 import { URL_BASE } from "@/lib/endpoint"
 import Link from "next/link";
-import Img from "../img";
-import TitleSection from "../titleSection";
-import { Badge } from "../badge";
+import Img from "../ui/img";
+import TitleSection from "../ui/titleSection";
+import { Badge } from "../ui/badge";
 const fetchProducts = () => {
     return fetch(`${URL_BASE}/api/productos?populate[imagen][fields][0]=url&paginate[page]=2&pagination[start]=0&pagination[limit]=9`)
         .then(res => res.json())

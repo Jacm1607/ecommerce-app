@@ -1,6 +1,6 @@
 import { URL_BASE } from "@/lib/endpoint";
-import Img from "../img";
-import TitleSection from "../titleSection";
+import Img from "../ui/img";
+import TitleSection from "../ui/titleSection";
 
 
 export interface IPaginaPrincipal {

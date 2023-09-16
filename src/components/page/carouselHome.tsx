@@ -1,6 +1,6 @@
 
 import { URL_BASE } from "@/lib/endpoint";
-import Img from "../img";
+import Img from "../ui/img";
 
 
 export interface IPaginaPrincipal {
